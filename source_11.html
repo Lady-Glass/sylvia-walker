@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>River Linden - Sylvia — 13 of 116</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="River Linden" />
+  <meta name="description" content="A page for the game Sylvia by River Linden." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+ </head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.png"><img src="Small Cover.png" border="1"></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Sylvia</span> <span class="pagination">— 13 of 116</span>
+	</h1>
+	<h2>
+		<span>River Linden</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 2</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_10.html">Previous</a></li><li><a href="source_12.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Chapter B - Standard Actions Which Move the Actor</span></p><p class="indent0"><span class="heading">Section a - Going</span></p><p class="indent0">The can't go that way rule is not listed in the check going rulebook.</p><p class="indent0">Going northeast is danger.</p><p class="indent0">Going northwest is danger.</p><p class="indent0">Going southeast is danger.</p><p class="indent0">Going southwest is danger.</p><p class="indent0">Going east is danger.</p><p class="indent0">Going west is danger.</p><p class="indent0">Instead of going up:</p><p class="indent1">if Pilgrimage is happening:</p><p class="indent2">if yourself is kneeling:</p><p class="indent3">try exiting;</p><p class="indent3">stop the action;</p><p class="indent1">say &quot;<span class="quote">It is said that the birds and the beasts of the air know a freedom we can never experience, but [</span><span class="substitution">if Pilgrimage is happening</span><span class="quote">]in the end they're just going somewhere, like the rest of us. Sylvia thinks about Icarus [</span><span class="substitution">one of</span><span class="quote">]briefly, and smiles[</span><span class="substitution">or</span><span class="quote">]and shakes her head[</span><span class="substitution">stopping</span><span class="quote">].[</span><span class="substitution">else</span><span class="quote">]what does it matter now?[</span><span class="substitution">end if</span><span class="quote">]</span>&quot;.</p><p class="indent0">Instead of going down:</p><p class="indent1">if Pilgrimage is happening:</p><p class="indent2">try collapsing;</p><p class="indent1">else:</p><p class="indent2">continue the action.</p><p class="indent0">Instead of danger:</p><p class="indent1">if Pilgrimage is happening:</p><p class="indent2">if yourself is kneeling:</p><p class="indent3">say &quot;<span class="quote">She cannot leave the path while knelt to the ground.</span>&quot;;</p><p class="indent2">else:</p><p class="indent3">say &quot;<span class="quote">The reeds and brambles warn her with their jagged edges to stay on the path.</span>&quot;;</p><p class="indent1">else:</p><p class="indent2">continue the action.</p><p class="indent0">Instead of going south:</p><p class="indent1">if Pilgrimage is happening:</p><p class="indent2">if yourself is kneeling:</p><p class="indent3">say &quot;<span class="quote">She cannot walk, not even to turn back, while knelt to the ground.</span>&quot;;</p><p class="indent2">else:</p><p class="indent3">say &quot;<span class="quote">She cannot turn back. She has fought with herself too long to be where she is now.</span>&quot;;</p><p class="indent1">else:</p><p class="indent2">continue the action.</p><p class="indent0">Instead of going north:</p><p class="indent1">if Pilgrimage is happening:</p><p class="indent2">if yourself is kneeling:</p><p class="indent3">say &quot;<span class="quote">She cannot carry on while knelt to the ground.</span>&quot;;</p><p class="indent2">else:</p><p class="indent3">increment the journey of yourself;</p><p class="indent3">if the journey of yourself &gt; 57:</p><p class="indent4">if the player holds the spike:</p><p class="indent5">now the spike is in A1;</p><p class="indent5">say &quot;<span class="quote">She lets her rusted iron fang slip from her fingers and fall on the way behind her in a puff of dust.</span>&quot;;</p><p class="indent3">if the spike is in A1:</p><p class="indent4">now the spike is undescribed;</p><p class="indent3">if the journey of yourself &gt; 74:</p><p class="indent4">say &quot;<span class="quote">At last, the clouds have parted, and clean sunlight reveals a windswept prairie far ahead.[</span><span class="substitution">paragraph break</span><span class="quote">]Sylvia's stride breaks into a staggering run. Her breath comes in pained gasps as she pulls forward, down a gentle slope to where the grasses beckon and wave.[</span><span class="substitution">paragraph break</span><span class="quote">]Down in the little valley, the railroad comes to an abrupt end, the twin lines of steel parting slightly in the grass and then ceasing. From far to the north comes the unmistakable glint of a noon sun on a lazy river.[</span><span class="substitution">paragraph break</span><span class="quote">]Heedless of you or anything else in the world, Sylvia runs towards the glowing promise at the horizon. Her footfalls begin to fade on the wind as she leaves you behind. You are alone on the prairie.</span>&quot;;</p><p class="indent4">now the player is in A2;</p><p class="indent4">now the narrative of yourself is 0;</p><p class="indent4">repeat with item running through things:</p><p class="indent5">if yourself is wearing item:</p><p class="indent6">now Revenant is wearing item;</p><p class="indent5">if yourself is carrying item:</p><p class="indent6">now Revenant is carrying item;</p><p class="indent4">stop the action;</p><p class="indent3">say &quot;<span class="quote">[</span><span class="substitution">moveres</span><span class="quote">]</span>&quot;;</p><p class="indent1">else:</p><p class="indent2">continue the action.</p><p class="indent0">Check going:</p><p class="indent1">unless Pilgrimage is happening:</p><p class="indent2">say &quot;<span class="quote">[</span><span class="substitution">one of</span><span class="quote">]Sylvia's time following your instructions is over, and there is nowhere for you to go[</span><span class="substitution">or</span><span class="quote">]There is nowhere for you to go[</span><span class="substitution">stopping</span><span class="quote">].</span>&quot;;</p><p class="indent2">stop the action;</p><p class="indent1">say &quot;<span class="quote">In and out of what? Never mind, don't answer that.</span>&quot;;</p><p class="indent1">stop the action.</p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>

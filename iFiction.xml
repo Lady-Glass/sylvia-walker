@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+    <story>
+        <identification>
+            <ifid>E4D6195C-09A1-464B-9236-CDDB507B4CEC</ifid>
+            <format>glulx</format>
+        </identification>
+        <bibliographic>
+            <title>Sylvia</title>
+            <author>River Linden</author>
+            <headline>Her Journey</headline>
+            <genre>Surreal</genre>
+            <firstpublished>2017</firstpublished>
+            <description>You are not Sylvia. She is.</description>
+            <language>en</language>
+            <group>Inform</group>
+        </bibliographic>
+        <cover>
+            <format>png</format>
+            <height>665</height>
+            <width>665</width>
+            <description>A moonlit road.</description>
+        </cover>
+        <releases>
+            <attached>
+                <release>
+                    <releasedate>2017-08-26</releasedate>
+                    <version>2</version>
+                    <compiler>Inform 7</compiler>
+                    <compilerversion>6M62</compilerversion>
+                </release>
+            </attached>
+        </releases>
+        <colophon>
+            <generator>Inform 7</generator>
+            <generatorversion>6M62</generatorversion>
+            <originated>2017-08-26</originated>
+        </colophon>
+        <glulx>
+            <serial>170826</serial>
+            <release>2</release>
+            <compiler>Inform 7 build 6M62</compiler>
+            <coverpicture>1</coverpicture>
+        </glulx>
+    </story>
+</ifindex>

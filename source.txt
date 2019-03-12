@@ -1,0 +1,1820 @@
+"Sylvia" by River Linden
+
+PART 01 - SETTINGS
+
+Chapter A - Library Card
+
+The story title is "Sylvia".
+The story headline is "Her Journey".
+The story genre is "Surreal".
+The release number is 2.
+The story description is "You are not Sylvia. She is."
+The story creation year is 2017.
+
+Chapter B - Release Instructions
+
+Release along with cover art ("A moonlit road."), a website, an interpreter, the source text, the library card, and an introductory postcard.
+
+Chapter C - Use Flags
+
+Use American dialect, the serial comma, unabbreviated object names, no scoring, VERBOSE room descriptions, and undo prevention.
+
+Chapter D - Extensions
+
+Include Real-Time Delays by Erik Temple.
+
+PART 02 - VERBS
+
+Chapter A - Standard Actions Concerning the Actor's Possessions
+
+Section a - Taking inventory
+
+Before taking inventory:
+	if Remorse is happening:
+		say "Why should I know what you're carrying?";
+		stop the action;
+	if Fulfillment is happening:
+		say "What you have is not mine to tell you.";
+		stop the action.
+
+Section b - Taking
+
+Understand "draw [something]" as taking.
+
+Before taking something:
+	unless Pilgrimage is happening:
+		say "There is no one to do that for you.";
+		stop the action.
+
+Instead of taking the sky, say "If only."
+Instead of taking the sun, say "She admires your ambition with a weary smile."
+Instead of taking the moon, say "Wouldn't that be a comfort to have?"
+Instead of taking the stars, say "She has no inclination to be poetic right now."
+Instead of taking the wind, say "She hugs herself for warmth, unwilling to spread her arms to the cold air."
+Instead of taking the ground:
+	if the white pebble is in Warehouse:
+		if a random chance of 1 in 3 succeeds:
+			move the white pebble to the player;
+			say "She [if yourself is standing]reluctantly stoops to pick up a single white pebble[else]scoops up a single white pebble and rolls it around in her palm[end if].";
+			stop the action;
+	if the clod of soil is in Warehouse:
+		if a random chance of 1 in 2 succeeds:
+			move the clod of soil to the player;
+			say "[if yourself is standing]She reluctantly stops and pries a chunk of dirt from the baked ground[else]With a sigh, she digs her fingers into the parched earth and pulls a chunk free[end if].";
+			stop the action;
+	if yourself is standing:
+		say "Bending would hurt her back and break her rhythm. She continues to trudge forward.";
+		try going north;
+		stop the action;
+	say "She takes a deep breath, pushing back tears, and shakes her head silently.";
+	stop the action.
+Instead of taking the rail:
+	if the splinter is in Warehouse:
+		if a random chance of 1 in 3 succeeds:
+			move the splinter to the player;
+			say "She sighs[if yourself is standing], bends down,[else][end if] and pries a bit of a crosspiece off. The wood snaps, leaving her holding a long, oaken splinter.";
+			stop the action;
+	if yourself is standing:
+		say "Bending would hurt her back and break her rhythm. She continues to trudge forward.";
+		try going north;
+		stop the action;
+	say "She takes a deep breath, pushing back tears, and shakes her head silently.";
+	stop the action.
+Instead of taking the brush, say "She has scars on her arms from a time she tried to tear the reeds and brambles aside. She has kept to the rails since then."
+Instead of taking the game, say "You already have the story in front of you. Now finish it."
+Instead of taking the spike:
+	if the spike is undescribed:
+		unless the spike is handled:
+			if a random chance of 2 in 3 succeeds:
+				say "She grits her teeth, sets one knee to the earth, and heaves. The rust cuts into her hand, nearly drawing blood. ";
+				if a random chance of 1 in 2 succeeds:
+					move the spike to the player;
+					say "At last, it comes loose, pulling free in a jerk and a cloud of dust.";
+					stop the action;
+				say "It is no avail. She fails to move it, even slightly.";
+				stop the action;
+			if yourself is standing:
+				say "Bending would hurt her back and break her rhythm. She continues to trudge forward.";
+				try going north;
+				stop the action;
+			say "She takes a deep breath, pushing back tears, and shakes her head silently.";
+			stop the action;
+		say "The last one served her no purpose. It is far behind her now, and she does not need another.";
+		stop the action;
+	if the player carries the spike:
+		say "It already lies heavy in her hand, rusted and spiteful.";
+		stop the action;
+	move the spike to the player;
+	say "She sighs and picks up her rusted iron fang again."
+
+Report taking the knife:
+	say "[if the weariness of yourself < 2]She draws a shining knife from her boot and flips it adroitly a few times[else]She exhales slowly to steady herself, and pulls out her long, cold knife[end if]." instead.
+
+Section c - Removing it from
+
+Before removing something from something:
+	unless Pilgrimage is happening:
+		say "You have no body. You cannot alter this world.";
+		stop the action.
+
+Section d - Dropping
+
+Understand the command "throw" as something new.
+
+Before dropping:
+	unless Pilgrimage is happening:
+		say "You are not holding anything in the story.";
+		stop the action.
+
+Instead of dropping the white pebble:
+	move the white pebble to Warehouse;
+	say "It hits the ground with a 'click' and is lost.".
+Instead of dropping the clod of soil:
+	move the clod of soil to Warehouse;
+	say "She lets it slip through her fingers to hit the ground, where it crumbles.".
+Instead of dropping the knife:
+	say "It has saved her life before, and she will not leave it behind now. She puts it away instead.";
+	try inserting the knife into the boots.
+
+Check dropping the spike:
+	if the spike is undescribed:
+		say "She does not have a rail spike to drop.";
+		stop the action.
+
+Section e - Putting it on
+
+Before putting something on something:
+	unless Pilgrimage is happening:
+		say "You cannot reach that without a body.";
+		stop the action.
+
+Instead of putting something on the ground:
+	try dropping the noun.
+
+Section f - Inserting it into
+
+Understand "stow [something] in [something]" and "sheathe [something] in [something]" as inserting it into.
+
+Before inserting something into something:
+	unless Pilgrimage is happening:
+		say "You are not holding anything I know about.";
+		stop the action.
+
+Check inserting something into the boots:
+	unless the noun is the knife:
+		say "Sylvia's boots are not for carrying possessions. The knife is an exception.";
+		stop the action.
+
+Check inserting something into something:
+	if the player wears the second noun:
+		unless the second noun is the boots:
+			say "Sylvia's clothing has no pockets.";
+			stop the action.
+
+Report inserting the knife into the boots:
+	say "The knife is tucked away for another time." instead.
+
+Section g - Eating
+
+The can't eat unless edible rule response (A) is "[We] [do] not need food. Nor, as it happens, [regarding the noun][are] [regarding the noun][those] food.".
+
+Chapter B - Standard Actions Which Move the Actor
+
+Section a - Going
+
+The can't go that way rule is not listed in the check going rulebook.
+
+Going northeast is danger.
+Going northwest is danger.
+Going southeast is danger.
+Going southwest is danger.
+Going east is danger.
+Going west is danger.
+
+Instead of going up:
+	if Pilgrimage is happening:
+		if yourself is kneeling:
+			try exiting;
+			stop the action;
+	say "It is said that the birds and the beasts of the air know a freedom we can never experience, but [if Pilgrimage is happening]in the end they're just going somewhere, like the rest of us. Sylvia thinks about Icarus [one of]briefly, and smiles[or]and shakes her head[stopping].[else]what does it matter now?[end if]".
+
+Instead of going down:
+	if Pilgrimage is happening:
+		try collapsing;
+	else:
+		continue the action.
+
+Instead of danger:
+	if Pilgrimage is happening:
+		if yourself is kneeling:
+			say "She cannot leave the path while knelt to the ground.";
+		else:
+			say "The reeds and brambles warn her with their jagged edges to stay on the path.";
+	else:
+		continue the action.
+
+Instead of going south:
+	if Pilgrimage is happening:
+		if yourself is kneeling:
+			say "She cannot walk, not even to turn back, while knelt to the ground.";
+		else:
+			say "She cannot turn back. She has fought with herself too long to be where she is now.";
+	else:
+		continue the action.
+
+Instead of going north:
+	if Pilgrimage is happening:
+		if yourself is kneeling:
+			say "She cannot carry on while knelt to the ground.";
+		else:
+			increment the journey of yourself;
+			if the journey of yourself > 57:
+				if the player holds the spike:
+					now the spike is in A1;
+					say "She lets her rusted iron fang slip from her fingers and fall on the way behind her in a puff of dust.";
+			if the spike is in A1:
+				now the spike is undescribed;
+			if the journey of yourself > 74:
+				say "At last, the clouds have parted, and clean sunlight reveals a windswept prairie far ahead.[paragraph break]Sylvia's stride breaks into a staggering run. Her breath comes in pained gasps as she pulls forward, down a gentle slope to where the grasses beckon and wave.[paragraph break]Down in the little valley, the railroad comes to an abrupt end, the twin lines of steel parting slightly in the grass and then ceasing. From far to the north comes the unmistakable glint of a noon sun on a lazy river.[paragraph break]Heedless of you or anything else in the world, Sylvia runs towards the glowing promise at the horizon. Her footfalls begin to fade on the wind as she leaves you behind. You are alone on the prairie.";
+				now the player is in A2;
+				now the narrative of yourself is 0;
+				repeat with item running through things:
+					if yourself is wearing item:
+						now Revenant is wearing item;
+					if yourself is carrying item:
+						now Revenant is carrying item;
+				stop the action;
+			say "[moveres]";
+	else:
+		continue the action.
+
+Check going:
+	unless Pilgrimage is happening:
+		say "[one of]Sylvia's time following your instructions is over, and there is nowhere for you to go[or]There is nowhere for you to go[stopping].";
+		stop the action;
+	say "In and out of what? Never mind, don't answer that.";
+	stop the action.
+
+Section b - Entering
+
+The can't enter what's not enterable rule is not listed in the check entering rulebook.
+
+Understand "go to [something]" as entering.
+
+Before entering something:
+	unless Pilgrimage is happening:
+		say "In this world, you are incorporeal. Your position is meaningless.";
+		stop the action.
+
+Instead of entering the sky, say "Sylvia is confused, and flightless."
+Instead of entering the sun, say "Sylvia is confused."
+Instead of entering the moon, say "Sylvia is confused."
+Instead of entering the stars, say "Sylvia is confused, and possibly less imaginative than you."
+Instead of entering the wind, say "Sylvia is confused, and flightless."
+Instead of entering the ground:
+	try collapsing;
+	stop the action.
+Instead of entering the rail, say "She is already on the track. She could hardly leave it."
+Instead of entering the brush, say "The scars on her arms warn her not to try that again."
+Instead of entering the game, say "You have the story in front of you. Now finish it."
+
+Check entering something:
+	if Pilgrimage is happening:
+		say "That's not feasible.";
+		stop the action.
+
+Section c - Exiting
+
+The can't exit when not inside anything rule is not listed in the check exiting rulebook.
+The standard exiting rule is not listed in the carry out exiting rulebook.
+The standard report exiting rule is not listed in the report exiting rulebook.
+The describe room emerged into rule is not listed in the report exiting rulebook.
+
+Understand nothing as exiting.
+Understand "stand", "stand up", and "get up" as exiting.
+
+Carry out exiting:
+	try resolving;
+	stop the action.
+
+Section d - Getting off
+
+The can't get off things rule is not listed in the check getting off rulebook.
+The standard getting off rule is not listed in the carry out getting off rulebook.
+The standard report getting off rule is not listed in the report getting off rulebook.
+The describe room stood up into rule is not listed in the report getting off rulebook.
+
+Understand "leave [something]", "get off [something]", and "get up from [something]" as getting off.
+
+Check getting off:
+	unless Pilgrimage is happening:
+		unless the noun is the game:
+			say "You are not on anything, to my knowledge.";
+			stop the action;
+		say "All right, then.";
+		try quitting the game;
+		stop the action.
+
+Carry out getting off:
+	if the noun is the ground:
+		try resolving;
+		stop the action;
+	if the noun is the game:
+		say "What game?";
+		stop the action;
+	if the noun is the rail:
+		say "There is nowhere to be but on the endless track.";
+		stop the action;
+	if the player is wearing the noun:
+		try taking off the noun;
+		stop the action;
+	say "She is not in [regarding the noun][those].".
+
+Chapter C - Standard Actions Concerning the Actor's Vision
+
+Section a - Looking
+
+The room description heading rule is not listed in the carry out looking rulebook.
+The room description paragraphs about objects rule is not listed in the carry out looking rulebook.
+
+Understand "look around" as looking.
+
+Before looking:
+	if Fulfillment is happening:
+		say "The great plain rolls away to the north horizon under rays of sunlight breaking through the clouds.";
+		stop the action;
+	if Remorse is happening:
+		say "What is there to see? Lines of text?";
+		stop the action.
+
+After looking:
+	unless the player carries the spike:
+		unless the spike is undescribed:
+			say "A rusted rail spike lies in the dust.".
+
+Section b - Examining
+
+The parser error internal rule translates into I6 as "PARSER_ERROR_INTERNAL_R" with "That isn't something [we] [can] see." (E).
+
+The examine directions rule response (A) is "The sky is grey, and so is the world beneath it, in all directions.".
+The examine undescribed things rule response (A) is "That isn't something [we] [can] see.". [catches x conversation subject]
+The examine containers rule is not listed in the carry out examining rulebook.
+
+After examining the clod of soil:
+	if Pilgrimage is happening:
+		move the clod of soil to Warehouse.
+
+Section c - Looking under
+
+Check looking under something:
+	if Pilgrimage is happening:
+		if yourself is standing:
+			say "Bending would hurt her back and break her rhythm. She continues to trudge forward.";
+			try going north;
+			stop the action;
+	else:
+		say "Nothing that could matter to you is there.";
+		stop the action.
+
+Section d - Searching
+
+Instead of searching Revenant:
+	say "[one of]Have you no decency?[or]I really must protest.[or]How about no?[or]Just stop.[stopping]";
+	stop the action.
+
+Section e - Consulting it about
+
+[STET]
+
+Chapter D - Standard Actions Which Change States
+
+Section a - Locking it with
+
+Before locking something with something:
+	unless Pilgrimage is happening:
+		say "There is nothing to lock.";
+		stop the action.
+
+Section b - Unlocking it with
+
+Before unlocking something with something:
+	unless Pilgrimage is happening:
+		say "There is nothing to unlock.";
+		stop the action.
+
+Section c - Switching on
+
+Before switching on something:
+	unless Pilgrimage is happening:
+		say "There is nothing to switch on.";
+		stop the action.
+
+Section d - Switching off
+
+Before switching off something:
+	unless Pilgrimage is happening:
+		say "There is nothing to switch off.";
+		stop the action.
+
+Section e - Opening
+
+Before opening something:
+	unless Pilgrimage is happening:
+		say "There is nothing to open.";
+		stop the action.
+
+Section f - Closing
+
+Before closing something:
+	unless Pilgrimage is happening:
+		say "There is nothing to close.";
+		stop the action.
+
+Section g - Wearing
+
+The can't wear what's not clothing rule response (A) is "... creative. But no.".
+The can't wear what's not held rule response (A) is "[regarding the noun][Those] [are] not in [our] possession.".
+The can't wear what's already worn rule response (A) is "She continues to do so.".
+
+Before wearing something:
+	unless Pilgrimage is happening:
+		say "Don't bother with what you're wearing. I can't see you.";
+		stop the action.
+
+Section h - Taking off
+
+Before taking off something:
+	unless Pilgrimage is happening:
+		say "Don't bother with what you're wearing. I can't see you.";
+		stop the action.
+
+Instead of taking off something:
+	say "She declines to comply.";
+	stop the action.
+
+Chapter E - Standard Actions Concerning Other People
+
+Section a - Giving it to
+
+Before giving something to something:
+	unless Pilgrimage is happening:
+		say "You have nothing to give.";
+		stop the action.
+
+Section b - Showing it to
+
+The carrying requirements rule does nothing when showing the scars to something.
+
+Before showing something to something:
+	unless Pilgrimage is happening:
+		say "You have nothing to show me I have not already seen.";
+		stop the action.
+
+Instead of showing the scars to something:
+	try examining the scars.
+
+Section c - Waking
+
+The block waking rule is not listed in the check waking rulebook.
+
+Carry out waking yourself:
+	if Pilgrimage is happening:
+		say "She is awake.";
+	else:
+		try panicking.
+
+Carry out waking Revenant:
+	say "That will do nothing. You monster.".
+
+Section d - Throwing it at
+
+Before throwing something at something:
+	unless Pilgrimage is happening:
+		say "You have nothing to throw.";
+		stop the action.
+
+Instead of throwing the white pebble at the brush:
+	move the white pebble to Warehouse;
+	say "She flicks her wrist, and, with a rustle, it disappears into the tangle.".
+Instead of throwing the clod of soil at the brush:
+	move the clod of soil to Warehouse;
+	say "The piece of packed earth disappears into the bramble with a crash.".
+Instead of throwing the splinter at the brush:
+	move the splinter to Warehouse;
+	say "The sliver of wood flips end over end out of sight.".
+Instead of throwing the spike at the brush:
+	say "It is heavy, and she is tired. She declines.".
+Instead of throwing the knife at the brush:
+	try dropping the knife.
+
+Section e - Attacking
+
+The block attacking rule response (A) is "She doesn't have the energy to be quite that violent.".
+
+Understand the command "kill" as something new.
+Understand the command "break" as something new.
+
+Before attacking something:
+	unless Pilgrimage is happening:
+		say "You have nothing to hit [regarding the noun][those] with.";
+		stop the action.
+
+Section f - Kissing
+
+The kissing yourself rule response (A) is "Sylvia sighs with annoyance, her arms folded over her chest for warmth.".
+
+Before kissing something:
+	unless Pilgrimage is happening:
+		say "Thank you, no.";
+		stop the action.
+
+Section g - Answering it that
+
+[STET]
+
+Section h - Telling it about
+
+[STET]
+
+Section i - Asking it about
+
+[STET]
+
+Section j - Asking it for
+
+[STET]
+
+Chapter F - Standard Actions Which are Checked
+
+Section a - Waiting
+
+The standard report waiting rule is not listed in the report waiting rulebook.
+
+Report waiting:
+	if Pilgrimage is happening:
+		if the weariness of yourself < 3:
+			say "She rebels at the notion. That won't get her home.";
+			increment the weariness of yourself;
+		else:
+			if yourself is standing:
+				say "She sighs deeply. Maybe it is time to sit down. She hesitates, unsure whether it's right for her to give up after coming so far.";
+			else:
+				say "Time passes, marked by the eddies of dust dancing inches above the cracked earth.";
+	else:
+		say "[one of]What is time in this world of endless grey?[line break][or]Tick. Tick.[stopping]".
+
+Section b - Touching
+
+Instead of touching the knife:
+	try rubbing the knife.
+Instead of touching the ground:
+	try taking the ground.
+Instead of touching the rail:
+	try taking the rail.
+Instead of touching the brush:
+	try going west.
+Instead of touching the clod of soil:
+	try examining the clod of soil.
+Instead of touching the hair:
+	try examining the hair.
+Instead of touching the white pebble:
+	if Pilgrimage is happening:
+		say "It is smooth, cold, uncaring.".
+Instead of touching the splinter:
+	if Pilgrimage is happening:
+		say "It is a dry, fragile bit of wood. Thin fibers rustle as she rolls it between her fingers.".
+Instead of touching the spike:
+	if Pilgrimage is happening:
+		say "The texture of rust is unpleasant and unapologetic.".
+Instead of touching the boots:
+	if Pilgrimage is happening:
+		say "Sylvia's boots are dusty, scuffed leather.".
+Instead of touching the tunic:
+	if Pilgrimage is happening:
+		say "Remarkably, the fabric is still soft.".
+Instead of touching the cloak:
+	if Pilgrimage is happening:
+		say "It's a heavy fabric, probably wool.".
+Instead of touching the skirt:
+	if Pilgrimage is happening:
+		say "The skirt is nearing the end of its lifespan. The folds of cloth are interrupted by tears, dirt, and dried blood.".
+Instead of touching the scars:
+	if Pilgrimage is happening:
+		say "Arms clutched to her chest, she traces out the pale lines of memory with dirty fingertips. She sighs deeply.";
+	else if Fulfillment is happening:
+		say "Sylvia is beyond your reach.";
+	else:
+		try touching Revenant.
+
+The report touching other people rule response (A) is "[one of]No. I will not allow you to mock her in death.[or]I said no.[or][bold type]No.[roman type][stopping]".
+The report touching things rule response (A) is "[regarding the noun][Those] [are] beyond [our] reach.".
+
+Section c - Waving
+
+The can't wave what's not held rule response (A) is "Do note that [we] [aren't] holding [regarding the noun][those].".
+
+Understand "wave at [something]" as waving at.
+Waving at is an action applying to one thing.
+
+Carry out waving at:
+	if Pilgrimage is happening:
+		say "She declines to comply.";
+		if yourself is standing:
+			try going north;
+	else:
+		say "All right.".
+
+Section d - Pulling
+
+Before pulling something:
+	unless Pilgrimage is happening:
+		say "You cannot pull anything.";
+		stop the action.
+
+Instead of pulling the spike:
+	try taking the spike.
+
+Section e - Pushing
+
+Before pushing something:
+	unless Pilgrimage is happening:
+		say "You cannot push anything.";
+		stop the action.
+
+Section f - Turning
+
+Before turning something:
+	unless Pilgrimage is happening:
+		say "You cannot push anything.";
+		stop the action.
+
+Section g - Pushing it to
+
+Before pushing something to something:
+	unless Pilgrimage is happening:
+		say "You cannoth push anything.";
+		stop the action.
+
+Section h - Squeezing
+
+Before squeezing something:
+	unless Pilgrimage is happening:
+		say "You cannot do that.";
+		stop the action.
+
+Chapter G - Standard Actions Which Always Do Nothing
+
+Section a - Saying yes
+
+The block saying yes rule response (A) is "[one of]Of course[or]Naturally[or]Sure[or]Yeah[cycling].".
+
+Section b - Saying no
+
+The block saying no rule response (A) is "[one of]Of course[or]Naturally[cycling] not.".
+
+Section c - Burning
+
+The block burning rule response (A) is "There is nothing here with which to make fire.".
+
+Section d - Waking up
+
+Instead of waking up:
+	try panicking.
+
+Section e - Thinking
+
+The block thinking rule response (A) is "You do that. I'll wait.".
+
+Section f - Smelling
+
+The report smelling rule response (A) is "There is only the smell of parched earth and dust on the wind.".
+
+Before smelling something:
+	unless Pilgrimage is happening:
+		say "There is nothing to smell. The story is over.";
+		stop the action.
+
+Section g - Listening to
+
+The report listening rule is not listed in the report listening to rulebook.
+
+Instead of listening to the song, say "Sylvia's music keeps her company as she walks."
+Instead of listening to the sun, say "Sol is silent, and absent."
+Instead of listening to the moon, say "Luna is silent, and absent."
+Instead of listening to the stars, say "The music of the spheres has no reach here."
+Instead of listening to the ground:
+	if Pilgrimage is happening:
+		if yourself is kneeling:
+			say "She leans forward to put her ear to the ground. She hears nothing[first time]. No one is coming down the track from either direction[only].";
+			stop the action;
+		say "Bending would hurt her back and break her rhythm. She continues to trudge forward.";
+		try going north;
+		stop the action;
+	try listening to the wind;
+	stop the action.
+Instead of listening to the rail:
+	try listening to the ground;
+	stop the action.
+Instead of listening to the game:
+	if the narrative of yourself is 0:
+		if Remorse is happening:
+			say "What story is there anymore?[one of][or] Sylvia is dead.[one of][or] You killed her.[stopping][stopping]";
+		else:
+			say "You want to hear a story? Let me think.";
+			increment the narrative of yourself;
+		stop the action;
+	else:
+		say "[listentale]";
+		increment the narrative of yourself;
+		stop the action.
+
+Instead of listening to a room:
+	try listening to the wind;
+	stop the action.
+
+Report listening to something:
+	if Pilgrimage is happening:
+		if the weariness of yourself is 7:
+			say "The wind holds its breath. The only sound is Sylvia's ragged panting.";
+		else:
+			say "Nothing but the whistle of the wind at her back, pushing through the reeds on either side of the endless rail[if yourself is standing], and the crunch of gravel beneath her feet[else][end if].";
+	else if Remorse is happening:
+		say "The silence is terrible. A heart was stilled on this road, and now even the heartless wind will not blow here.";
+	else if the time since Fulfillment began is less than five minutes:
+		say "Sylvia's footsteps fade into the north, and the whistling wind remains to keep you company.";
+	else:
+		say "The prairie wind is shatteringly beautiful, uncanny and indescribable. It drowns anything else you might have been listening for.".
+
+Section h - Tasting
+
+The report tasting rule response (A) is "Her lips and tongue are dry, and there would be no point to trying to taste [regarding the noun][those].".
+
+Before tasting something:
+	unless Pilgrimage is happening:
+		say "There is nothing to taste. The story is over.";
+		stop the action.
+
+Section i - Cutting
+
+The block cutting rule response (A) is "That is not what Sylvia's knife is for.".
+
+Before cutting something:
+	unless Pilgrimage is happening:
+		say "There is nothing to cut. The story is over.";
+		stop the action.
+
+Instead of cutting the tunic:
+	say "She has no need for a strip of cloth at this time.".
+
+Instead of cutting the cloak:
+	say "She has no need for a strip of cloth at this time.".
+
+Instead of cutting the skirt:
+	say "She has no need for a strip of cloth at this time.".
+
+Instead of cutting the brush:
+	say "Wishful thinking, I'm afraid. It's far too dense.".
+
+Instead of cutting the hair:
+	say "Grooming can wait until she is home.".
+
+Instead of cutting the scars:
+	try cutting yourself.
+
+Instead of cutting yourself:
+	say "Every scar of Sylvia's is a memory of a battle she fought with something trying to hold her back. She refuses to become her own enemy.".
+
+Section j - Jumping
+
+The report jumping rule response (A) is "She is too tired for that.".
+
+Before jumping:
+	unless Pilgrimage is happening:
+		say "You do that. I'll wait.";
+		stop the action.
+
+Section k - Tying it to
+
+Before tying something to something:
+	unless Pilgrimage is happening:
+		say "You do that. I'll wait.";
+		stop the action.
+
+Section l - Drinking
+
+Before drinking something:
+	unless Pilgrimage is happening:
+		say "You do that. I'll wait.";
+		stop the action.
+
+Section m - Saying sorry
+
+The block saying sorry rule response (A) is "[if Pilgrimage is happening]I don't need an apology, nor does she.[else if Remorse is happening][one of]Oh, you're sorry? And that's supposed to make this better?[or][bold type]She[roman type] can't hear you, and [bold type]I[roman type] don't want to.[or]Just stop.[or]Really? You're really sorry?[or]No. I will not forgive you.[stopping][else]You are forgiven.[end if]".
+
+Section n - Swinging
+
+Before swinging something:
+	unless Pilgrimage is happening:
+		say "You do that. I'll wait.";
+		stop the action.
+
+Section o - Rubbing
+
+Before rubbing something:
+	unless Pilgrimage is happening:
+		unless the noun is Revenant:
+			say "You do that. I'll wait.";
+			stop the action;
+		say "What is wrong with you?";
+		stop the action.
+
+Check rubbing something:
+	if the player wears the noun:
+		say "There's no use cleaning road-clothes.";
+		stop the action;
+	unless the noun is scenery:
+		unless the player carries the noun:
+			try taking the noun;
+	else:
+		say "That's not a task she could finish if she started it.";
+		stop the action.
+
+Carry out rubbing something:
+	unless the noun is the knife:
+		say "There's nothing to achieve by trying that.";
+	else:
+		say "She gathers up a corner of her tunic and carefully wipes down the blade. It shines like it always has. It is perfect.".
+
+Section p - Setting it to
+
+[STET]
+
+Section q - Waving hands
+
+The report waving hands rule response (A) is "That would achieve nothing; she declines to comply.".
+
+Before waving hands:
+	unless Pilgrimage is happening:
+		say "At me?";
+		if glulx timekeeping is supported:
+			wait 600 ms before continuing, strictly;
+		say "... very well.";
+		stop the action.
+
+Section r - Buying
+
+The block buying rule response (A) is "No one here will sell [us] anything.".
+
+Section s - Climbing
+
+Before climbing something:
+	unless Pilgrimage is happening:
+		say "You do that. I'll wait.";
+		stop the action.
+
+Section t - Sleeping
+
+The block sleeping rule is not listed in the check sleeping rulebook.
+
+Carry out sleeping:
+	if Pilgrimage is happening:
+		if the weariness of yourself < 3:
+			say "She rebels at the notion. That won't get her home.";
+			increment the weariness of yourself;
+		else:
+			if yourself is standing:
+				say "She sighs deeply. Maybe it is time to sit down. She hesitates, unsure whether it's right for her to give up after coming so far.";
+			else:
+				say "She cannot sleep. Almost sightlessly, she stares, and the world passes around her, moment by agonized moment.";
+	else:
+		say "What is sleep?".
+
+Chapter H - Standard Actions Out of World
+
+Chapter I - Nonstandard Actions
+
+Section a - Kneeling (collapsing)
+
+Understand "kneel", "rest", "sit", "lie down", and "sit down" as collapsing.
+Collapsing is an action applying to nothing.
+
+Before collapsing:
+	unless Pilgrimage is happening:
+		say "Feel free. You don't need to tell me.";
+		stop the action.
+
+Check collapsing:
+	if yourself is kneeling:
+		say "She is already kneeling in the dust. [one of]What more do you want?[or]What more do you want?[or]What more do you want?[or][bold type]What more do you want?[roman type][line break][stopping]";
+		stop the action;
+	if the weariness of yourself < 3:
+		increment the weariness of yourself;
+		if the weariness of yourself < 3:
+			say "She rebels at the notion. That won't get her home.";
+		else:
+			say "She sighs deeply. Maybe it is time to sit down. She hesitates, unsure whether it's right for her to give up after coming so far.";
+		stop the action.
+
+Carry out collapsing:
+	now yourself is kneeling.
+
+Report collapsing:
+	say "[one of]She staggers to a halt, dragging her feet in the dust. Her momentum carries her forward, collapsing first onto one knee, then the other[or]She kneels in the dust once more[stopping]. [if the journey of yourself > 31][one of]What a shame to fall now, having come so far.[or][line break][or]She sighs, frustrated. One of her shins is bleeding through her skirt.[or][line break][stopping][else][line break][end if]".
+
+Section b - Standing (resolving)
+
+Understand "rise" as resolving.
+Resolving is an action applying to nothing.
+
+Before resolving:
+	unless Pilgrimage is happening:
+		say "Feel free. You don't need to tell me.";
+		stop the action.
+
+Check resolving:
+	if yourself is standing:
+		say "[one of]She is on her feet, swaying but determined.[or]She is on her feet, swaying but determined.[or][one of]She is on her feet, swaying but determined.[or]She remains standing, her gaze hard and angry.[purely at random][stopping]";
+		stop the action;
+	if the weariness of yourself > 5:
+		say "[one of]The moment is surreal and hypnotic. She does not heed your request.[or]She feels ...cold. Cold all the way through, right into her heart. She does not wish to stand again.[or]Maybe her time has come after all. She ignores your request.[stopping]";
+		unless the player carries the knife:
+			try taking the knife;
+		stop the action;
+	if the journey of yourself is 61:
+		if the narrative of yourself < 1:
+			say "'No!' Sylvia shouts. 'No! I'm done!'";
+			increment the narrative of yourself;
+			stop the action.
+
+Carry out resolving:
+	now yourself is standing.
+
+Report resolving:
+	unless the journey of yourself is 61:
+		say "She finds her feet once more.";
+	else:
+		say "With one more, wordless scream, she lunges to her feet. She stands, panting and heaving, sweat streaked through the dirt on her brow.";
+
+Section c - Yielding
+
+Understand "turn", "turn around", "turn back", "go back", and "give up" as yielding.
+Yielding is an action applying to nothing.
+
+Carry out yielding:
+	try going south;
+	stop the action.
+
+Section d - Trudging
+
+Understand "forward", "go forward", "move north", "continue", "keep going", "follow the tracks", "follow the track", "follow the rails", "follow the rail", "follow the path", "go home", and "walk" as trudging.
+Trudging is an action applying to nothing.
+
+Carry out trudging:
+	try going north;
+	stop the action.
+
+Section e - Breaking it
+
+Understand "break [something]", "snap [something]", "rip [something]", and "tear [something]" as breaking.
+Breaking is an action applying to one thing.
+
+Instead of breaking the game:
+	say "Good luck.".
+
+Check breaking:
+	unless Pilgrimage is happening:
+		say "You can touch nothing in this world.";
+		stop the action;
+	if the noun is scenery:
+		say "If only.";
+		stop the action.
+
+Carry out breaking:
+	if the noun is the splinter:
+		move the splinter to Warehouse;
+		say "It breaks between her fingers and falls to the ground. The bits of oak are lost among the gravel.";
+		stop the action;
+	if the player wears the noun:
+		say "She would never.";
+		stop the action;
+	say "That's not something she can destroy.";
+	stop the action.
+
+Section f - Throwing it
+
+Understand "throw [something]", "hurl [something]", and "huck [something]" as throwing.
+Throwing is an action applying to one thing.
+
+Check throwing something:
+	if the noun is the knife:
+		say "It has saved her life before, and she will not leave it behind now.";
+		stop the action;
+	if the noun is scenery:
+		say "She admires your ambition with a weary smile.";
+		stop the action;
+	unless the player holds the noun:
+		say "She hasn't got one.";
+		stop the action.
+
+Carry out throwing something:
+	try throwing the noun at the brush.
+
+Section g - Hurting it
+
+Understand "stab [something]", "kill [something]", and "hurt [something]" as raging.
+Raging is an action applying to one thing.
+
+Before raging:
+	unless Pilgrimage is happening:
+		unless the noun is yourself:
+			say "You can touch nothing in this world.";
+			stop the action;
+		say "I'd rather you didn't.";
+		stop the action.
+
+Check raging:
+	unless the noun is the player:
+		say "[regarding the noun][Those] cannot die.";
+		stop the action.
+
+Carry out raging:
+	say "You'll want to tell me what you're going to do that with.".
+
+Section h - Hurting it with
+
+Understand "stab [something] with [something preferably held]", "hurt [something] with [something preferably held]", "cut [something] with [something preferably held]", and "kill [something] with [something preferably held]" as hurting it with.
+Hurting it with is an action applying to two things.
+
+Before hurting something with something:
+	unless Pilgrimage is happening:
+		say "You can touch nothing in this world.";
+		stop the action.
+
+Check hurting something with something:
+	if the weariness of yourself < 2:
+		say "Violence will not get her home. Sylvia shudders at the thought and carries on.";
+		try going north;
+		stop the action.
+
+Carry out hurting something with something:
+	unless Sylvia is armed:
+		if the second noun is the knife:
+			say "The knife is currently away.";
+			stop the action;
+		say "Maybe try a more dangerous weapon.";
+		stop the action;
+	unless the noun is yourself:
+		say "[regarding the noun][Those] cannot die. She sees no reason to spend energy on the task.";
+		stop the action;
+	if the second noun is the spike:
+		if the player is carrying the spike:
+			say "There are cleaner ways to die. She shudders at the thought.";
+			stop the action;
+		say "She does not have a rail spike.";
+		stop the action;
+	try violence;
+	stop the action.
+
+Section i - Violence
+
+Understand "commit suicide" and "suicide" as violence.
+Violence is an action applying to nothing.
+
+Before violence:
+	unless Pilgrimage is happening:
+		say "I'd [bold type]really[roman type] prefer you didn't do that.";
+		stop the action.
+
+Check violence:
+	if the player is not carrying the knife:
+		say "The knife is in her boot.";
+		stop the action.
+
+Carry out violence:
+	say "[crisis]";
+	if the weariness of yourself < 7:
+		increment the weariness of yourself.
+
+Section j - Panicking
+
+Understand "out", "get out", and "leave" as panicking.
+Panicking is an action applying to nothing.
+
+Carry out panicking:
+	unless Fulfillment is happening:
+		say "You can walk away from this. Sylvia cannot.";
+	else:
+		if glulx timekeeping is supported:
+			wait 700 ms before continuing, strictly;
+		say "Very well.[paragraph break]";
+		if glulx timekeeping is supported:
+			wait 1700 ms before continuing, strictly;
+		say "Goodbye.[paragraph break]";
+		if glulx timekeeping is supported:
+			wait 1200 ms before continuing, strictly;
+		say ">[run paragraph on]";
+		if glulx timekeeping is supported:
+			wait 100 ms before continuing, strictly;
+		say "q[run paragraph on]";
+		if glulx timekeeping is supported:
+			wait 100 ms before continuing, strictly;
+		say "u[run paragraph on]";
+		if glulx timekeeping is supported:
+			wait 100 ms before continuing, strictly;
+		say "i[run paragraph on]";
+		if glulx timekeeping is supported:
+			wait 100 ms before continuing, strictly;
+		say "t";
+		if glulx timekeeping is supported:
+			wait 500 ms before continuing, strictly;
+		try quitting the game instead.
+
+Section k - Help
+
+Understand "help", "about", "hint", "hints", and "asdf" as querying.
+Querying is an action out of world.
+
+Check querying for the second time:
+	say "You've already read the [bold type]About[roman type] page; nothing's new.";
+	stop the action.
+
+Carry out querying:
+	say "[line break]
+This story is the end result of a project originally entitled 'Sylvia, Walker,' begun in January, 2017 by River Linden.[paragraph break]
+It is intended as a meditative piece about hope and despair, and something of a counterpoint to an often-discussed philosophy of J.R.R. Tolkien: the belief that neither hope nor despair were as meaningful as commitment and duty.[paragraph break]
+Sylvia is the protagonist of the story, not a stand-in for the reader. This work is interactive; the reader's choices will determine the outcome.[paragraph break]
+It is not a game. It cannot be won or lost. It is not a puzzle. It cannot be solved or beaten.[paragraph break]
+Would you like to see all the available outcomes of the story? > ";
+	if player consents:
+		say "
+Sylvia has been on the road for days without adequate food, water, or sleep.[paragraph break]
+If the reader continues to urge her forward, she will reach an end to the road and become free of the reader's commands.[paragraph break]
+The reader also has the option to cause Sylvia to slip into despair, and eventually kill herself. The end of the road will not be reached.[paragraph break]
+These are your options. We return now to the path.";
+	else:
+		say "Very well. We return to the path.".
+
+Section l - Talent
+
+Understand "flip [something]", "toss [something]", and "juggle [something]" as talent.
+Talent is an action applying to one thing.
+
+Before talent:
+	unless Pilgrimage is happening:
+		say "You are incorporeal, I am afraid.";
+		stop the action.
+
+Check talent:
+	unless the player holds the noun:
+		if the noun is the knife:
+			say "The knife is currently away.";
+			stop the action;
+		say "[regarding the noun][Those] [regarding the noun][are] not something she can toss about.";
+		stop the action.
+
+Carry out talent:
+	if the noun is the knife:
+		if the weariness of yourself < 2:
+			say "She tosses it high into the air. It flips, end over end over end, then its worn grip lands in her palm with a soft thump[first time]. Her eyes flash with satisfaction[only].";
+		else:
+			say "There is no joy for her in handling her weapon right now.";
+		stop the action;
+	say "She looks at [the noun] in her hand and shrugs, feeling no urge to play with it.".
+
+Section m - Asking about
+
+Understand the commands "ask", "tell", and "answer" as something new.
+
+Understand "ask [something] about [text]", "tell [something] about [text]", "speak to [something] about [text]", and "talk to [something] about [text]" as talking with it about.
+Talking with it about is an action applying to one thing and one topic.
+
+Carry out talking with it about:
+	unless the noun is a person:
+		if the noun is scenery:
+			say "The wide world does not care to listen.";
+		else if the noun is a sphere:
+			say "The heavens do not care to listen.";
+		else:
+			say "You go unheard by [the noun].";
+	else:
+		if Pilgrimage is happening:
+			say "No need to specify an audience. Sylvia is listening.";
+		else:
+			say "You needn't specify an audience. You and I can both hear you.";
+
+Understand "talk to [something]" and "speak to [something]" as speaking to.
+Speaking to is an action applying to one thing.
+
+Carry out speaking to:
+	unless the noun is a person:
+		if the noun is scenery:
+			say "The wide world does not care to listen.";
+		else if the noun is a sphere:
+			say "The heavens do not care to listen.";
+		else:
+			say "You go unheard by [the noun].";
+	else:
+		if Pilgrimage is happening:
+			say "You should say what you want to talk about.";
+		else:
+			say "Tell me what you want to talk about.";
+
+Understand "ask about [any subject]", "tell about [any subject]", and "talk about [any subject]" as talking about.
+Talking about is an action applying to one visible thing.
+
+Understand "ask about [text]", "tell about [text]", and "talk about [text]" as talking randomly about.
+Talking randomly about is an action applying to one topic.
+
+Check talking about something:
+	if Pilgrimage is happening:
+		if the weariness of yourself > 3:
+			unless the noun is death:
+				say "Sylvia ignores you. Her eyes are blank and her gaze is without distance.";
+				stop the action;
+		else:
+			if the noun is death:
+				say "Sylvia shakes her head almost imperceptibly. She has better things to focus on.";
+				stop the action.
+
+Carry out talking randomly about:
+	say "[blank]".
+
+To say blank:
+	if Pilgrimage is happening:
+		if yourself is standing:
+			say "Sylvia does not engage with you on this topic. She presses on.";
+			try going north;
+		else:
+			say "Sylvia does not engage with you on this topic.";
+	else:
+		say "Not something I'm interested in, sorry.".
+
+Carry out talking about something:
+	now the previous subject is the noun.
+
+A subject is a kind of thing.
+The previous subject is a subject that varies.
+
+Report talking about something:
+	if Pilgrimage is happening:
+		say "[the Sylvia corresponding to a subject of the noun in the Table of Chatter]";
+	else if Fulfillment is happening:
+		say "[the Narrator corresponding to a subject of the noun in the Table of Chatter]";
+	else:
+		say "[the Revenant corresponding to a subject of the noun in the Table of Chatter]".
+
+Home is a subject.
+Understand "journey", "Sylvia's journey", "her journey", "Sylvia's home", "her home", "scars", "her scars", "Sylvia's scars", "scar", "her scar", and "Sylvia's scar" as home.
+
+Death is a subject.
+Understand "suicide", "her suicide", "my suicide", "Sylvia's suicide", "her death", "my death", and "Sylvia's death" as death.
+
+Food is a subject.
+Understand "jerky", "beef jerky", "water", "camping", "last night", "supplies", "her supplies", "provisions", and "her provisions" as food.
+
+The view is a subject.
+Understand "scenery", "the scenery", and "what she sees" as the view.
+
+Instead of talking about a sphere:
+	try talking about the view.
+
+Instead of talking about a backdrop:
+	unless the noun is the game:
+		try talking about the view.
+
+Instead of talking about the game:
+	say "Try 'help' for information about this project."
+
+Memory is a subject.
+Understand "childhood", "Sylvia's childhood", "her childhood", "her memories", "Sylvia's memories", "hometown", "her hometown", "Sylvia's hometown", "parents", "her parents", "Sylvia's parents", "family", "her family", "Sylvia's family", "father", "her father", "Sylvia's father", "mother", "her mother", "Sylvia's mother", "siblings", "her siblings", "Sylvia's siblings", "brother", "her brother", "Sylvia's brother", "sister", "her sister", "Sylvia's sister", "friends", "her friends", "Sylvia's friends", "friend", "her friend", and "Sylvia's friend" as memory.
+Understand "Sylvia" as memory when Fulfillment is happening.
+Understand "Sylvia" as memory when Remorse is happening.
+
+Uniform is a subject.
+Understand "wardrobe", "her wardrobe", "Sylvia's wardrobe", "clothing", "clothes", "her clothing", "her clothes", "Sylvia's clothing", and "Sylvia's clothes" as uniform.
+
+Instead of talking about the skirt:
+	try talking about uniform.
+
+Instead of talking about the cloak:
+	try talking about uniform.
+
+Instead of talking about the tunic:
+	try talking about uniform.
+
+Instead of talking about the boots:
+	try talking about uniform.
+
+Sigarda is a subject.
+Understand "weeping", "crying", and "tears" as Sigarda.
+
+Cheshire is a subject.
+
+The war is a subject.
+Understand "nuclear war", "fallout", "nukes", "what happened", and "the apocalypse" as the war.
+
+The song is a subject.
+Understand "music", "love song", and "humming" as the song.
+
+To say utick:
+	increment the narrative of yourself.
+
+To say dtick:
+	decrement the narrative of yourself.
+
+Table of Chatter
+Subject	Sylvia	Narrator	Revenant
+Home	"[if the weariness of yourself < 4]She smiles slightly, but says nothing.[else]Her face tightens with emotion, perhaps anger, perhaps grief.[end if][line break]"	"Her story is no longer yours. You have done your part. Where she came from and where she goes now, neither are our concern.[line break]"	"That is not for you to know, especially not now.[line break]"
+Death	"[if the weariness of yourself < 4]Her brow lowers and her gaze hardens. She shakes her head.[else]There is no reply, though her face pales slightly.[end if][line break]"	"[if the weariness of yourself < 2]What is death in a world that exists outside of time, as all stories must? I can't imagine it.[else]She survived, and that is all that matters.[end if][line break]"	"[if the narrative of yourself < 2][utick]I have nothing to say to you about Sylvia's death.[else][dtick]Yes, this is one of the endings of the story. Sad, isn't it, that someone wanted to write it? I wonder what that person must feel.[first time][paragraph break]So here we are. You made this ending happen. But is it your fault, if someone else wrote it in? ...don't answer that, I don't want to talk about it.[only][end if][line break]"
+Food	"She shrugs, a wry smile tugging at the corners of her mouth.[one of][paragraph break]She left behind her travelsack and waterskin when they emptied.[or][paragraph break]Maybe she should have planned better, yes, she knows.[or][stopping][line break]"	"She will certainly make it to the river before exhaustion catches up with her. She should be able to get something to eat by the water's edge.[line break]"	"[blank]"
+The view	"Sylvia says nothing, and her expression is one of profound boredom.[line break]"	"[if the narrative of yourself is 0][utick]Yes, the scenery is fantastic.[else]Interesting choice, don't you think? An endless, featureless railroad, as the setting for a speculative piece about despair? I wonder what that says about the writer.[end if][line break]"	"This whole world was created to see whether you'd kill Sylvia. And you did. The featureless sky, the brittle reeds, all of it. Think about that.[line break]"
+Memory	"[blank]"	"I'm afraid I don't know more than you on this subject.[line break]"	"Even if I knew, I wouldn't tell you. Why would you want to know? You've already hurt them, whoever and wherever Sylvia's family are.[line break]"
+Uniform	"She looks down at her dusty, torn clothes. [if the weariness of yourself < 4]'Well,' she says, 'I've had all these pieces for years. Not sure where I got them anymore. They'll need to be replaced soon. When I get home.'[else]She shakes her head, her mouth a thin line.[end if][line break]"	"I really think the cloak was what brought the outfit together, but I guess that's just my opinion. Very archetypical 'long walk' getup, anyway.[line break]"	"Her clothes are wet with her blood. They serve no purpose anymore.[line break]"
+The knife	"'The knife was a gift,' she says. [if the narrative of yourself > 0]Engraved letters along the single fuller read, in barely-perceptible size, 'Love from Sigarda'.[else]She indicates with a shrug that she doesn't want to talk further about it.[end if][line break]"	"Did you know the knife was a gift from her lover? That's all I know about it, sorry.[line break]"	"The knife was a test. You failed. I have no more to say to you about it.[line break]"
+Sigarda	"[if the narrative of yourself > 0]Her eyes dart heavenward for a moment, then return to a downcast state.[first time] A single tear breaks free and makes its way down her cheek.[only][line break][else][blank][end if]"	"Well, I'm not clear on any details myself, but I think they like each other, and I hope they find each other again soon.[line break]"	"[if the narrative of yourself < 1][utick]Sigarda, the lover, the person you've taken Sylvia from? I don't know anything about her.[else]Sigarda isn't really a character, she's a concept. Her existence as the idea of 'person who wanted Sylvia to come home' is sufficient for her role as emotional leverage. Maybe her love for Sylvia would be more compelling if you were allowed to know anything about her, but that's perhaps outside the scope of this story.[paragraph break]You can imagine whatever you want about Sigarda, and it's just as true as anything else. Personally, I imagine a farm girl with red hair and tanned skin, bright eyes and an empath's smile, but that's probably just me.[end if][line break]"
+Cheshire	"[blank]"	"Hush now. Secrets.[line break]"	"[if the narrative of yourself > 2]Cheshire is the crimson thread, the ghost that flickers in and out of being at the edges of everything I write. Maybe the narrator is Cheshire. Maybe not. That is all I will say.[else][utick]There are things I should not tell you.[end if][line break]"
+The war	"Sylvia's brow darkens with memory. 'What's to say? Everyone died. Except a few of us, and we'll die soon too.'[line break]"	"Not much to say, really. Just the obvious. Terror, hellfire, mass destruction, the end of industrial society. Sylvia survived.[line break]"	"[if the narrative of yourself < 1][utick]I wouldn't worry about it if I were you. You don't seem to have a great regard for human life anyway.[else]It's just a low-effort plot device to explain the lifeless, bleak setting. Don't worry about it.[end if][line break]"
+The song	"[if the narrative of yourself < 1]Her face flickers with the briefest of smiles, and that is the extent of her response.[else]'Statice,' she says curtly, and that is the extent of her response.[end if][line break]"	"Personally, I find it to be a very comforting thought that Sylvia's music will go with her, no matter what road she takes. Whoever taught her those songs must stay with her as well. I wonder if she ever really feels alone, as long as she has something to sing. One for the philosophers, I'm sure.[line break]"	"Sylvia's singing is over now. I will take no questions.[line break]"
+
+Section n - Following
+
+Understand "follow Sylvia", "follow her", "walk after Sylvia", "walk after her", "chase Sylvia", "chase her", and "follow" as following.
+Following is an action applying to nothing.
+
+Carry out following:
+	if Pilgrimage is happening:
+		say "She is here.";
+	else if Remorse is happening:
+		say "Follow her into what, death? I'd rather you didn't.";
+	else:
+		say "She no longer needs you.".
+
+PART 03 - NOUNS
+
+Chapter A - Rooms
+
+Section a - A1
+
+A1 is a room.
+The description of A1 is "[A1-default].".
+The player is in A1.
+
+Section b - A2
+
+A2 is a room.
+
+Section c - A3
+
+A3 is a room.
+
+Section d - Warehouse
+
+Warehouse is a room.
+The description of Warehouse is "You've broken the story. Congratulations."
+
+Chapter B - Scenery
+
+Section a - Sky
+
+A backdrop is a kind of subject.
+The sky is a backdrop.
+The sky is everywhere.
+Understand "weather", "vista", "view", "cloud", and "clouds" as the sky.
+The description of the sky is "[if Pilgrimage is happening]She sees a steel grey of low clouds, featureless, glowing faintly with what should be daylight[else]The sky is low, cold, and grey[end if]."
+[Defined: Taking, Entering]
+A sphere is a kind of subject.
+
+The sun is part of the sky.
+The sun is a sphere.
+The description of the sun is "[if Fulfillment is happening]Though the sky is brighter now, the sun is still out of view[else]It is gone, behind the endless clouds[end if]."
+[Defined: Taking, Entering, Listening]
+
+The moon is part of the sky.
+The moon is a sphere.
+The description of the moon is "[if Pilgrimage is happening]The moon is a distant memory to her. Sometimes she wonders if she ever really saw it[else]There is no moon in this sky.[end if]."
+[Defined: Taking, Entering, Listening]
+
+Some stars are part of the sky.
+The stars are a sphere.
+Understand "star" as the stars.
+The description of the stars is "Don't you understand that there are none?"
+[Defined: Taking, Entering, Listening]
+
+Section b - Wind
+
+The wind is a backdrop.
+The wind is everywhere.
+Understand "whistling", "whistle", and "dust" as the wind.
+The description of the wind is "[if Pilgrimage is happening]She doesn't need to see it. It's always there.[else]Wind is not something one sees.[end if]"
+[Defined: Taking, Entering]
+
+Section c - Ground
+
+The ground is a backdrop.
+The ground is everywhere.
+Understand "dirt", "soil", "rock", "pebble", "pebbles", and "gravel" as the ground.
+The description of the ground is "The soil on either side of the rails is parched and cracking. The gravel under the rails is chalk-white and dusty."
+[Defined: Taking, Putting it on, Entering, Getting off, Listening]
+
+Section d - Rail
+
+The rail is a backdrop.
+The rail is everywhere.
+Understand "railroad", "crosspiece", "crosspieces", "beam", "beams", "rail tie", "rail ties", "track", "tracks", "path", "train", "train track", "train tracks", and "rails" as the rail.
+Understand "splinter" as the rail when the splinter is in Warehouse.
+The description of the rail is "[if Pilgrimage is happening][railmetaphor][else if Fulfillment is happening][first time]Well, there was an end to it, after all. [only]The rails are bright steel and aging wood, and they end unfinished amid the grass.[else]The bright steel and splintery wood are stained here with blood.[end if]".
+
+[Defined: Taking, Entering, Getting off, Listening]
+Section e - Brush
+
+The brush is a backdrop.
+The brush is everywhere.
+Understand "reed", "reeds", "bush", "bushes", "bramble", "brambles", "tangle", "thorns", "plant", and "plants" as the brush.
+The description of the brush is "[if Pilgrimage is happening]The brush keeps her on the rails. It is thick, and dry, and dead, and broken. It stays parallel to the tracks as far as she can see, to north and south.[else if Fulfillment is happening]In the breeze, the thorn bushes wave, almost a sad farewell to the walker who passed them by.[else]They are long dead, parched and brittle. Sylvia's blood in the soil will not revive them.[end if]"
+[Defined: Taking, Entering, Cutting, Throwing it at]
+
+Section f - Game
+
+The game is a backdrop.
+The game is everywhere.
+Understand "program" and "story" as the game.
+The description of the game is "How meta."
+[Defined: Taking, Entering, Getting off, Listening, Breaking]
+
+Section g - River
+
+The river is a backdrop.
+The river is in A2.
+Understand "water", "mirage", and "light" as the river.
+The description of the river is "It is barely more than a line of light from here, but just enough to be an unmistakable promise."
+
+Section h - Prairie
+
+The prairie is a backdrop.
+The prairie is in A2.
+Understand "horizon", "grass", "grasses", "valley", "footpath", "trail", "plain", and "plains" as the prairie.
+The description of the prairie is "The gold and green valley rolls away to the north, where it meets the sky at the river's edge."
+
+Chapter C - Loose Items
+
+Section a - White pebble
+
+The white pebble is in Warehouse.
+The description of the white pebble is "A hard, cold souvenir of an eternity swaying on failing legs."
+[Defined: Taking, Dropping, Throwing it at]
+
+Section b - Clod of soil
+
+The clod of soil is in Warehouse.
+Understand "chunk of dirt" as the clod of soil.
+The description of the clod of soil is "It crumbles between her fingers, and is gone."
+[Defined: Taking, Dropping, Examining, Throwing it at]
+
+Section c - Splinter
+
+The splinter is in Warehouse.
+Understand "oak", "wood", "wooden splinter", "piece of wood", "piece of oak", "oaken splinter", and "sliver" as the splinter.
+The description of the splinter is "This was once oak, the flesh of a living thing. It has rotted."
+[Defined: Taking, Breaking, Throwing it at]
+
+Section d - Spike
+
+The spike is in A1.
+The spike is undescribed.
+The printed name of the spike is "rail spike".
+Understand "rail spike" and "railroad spike" as the spike.
+Understand "rusted iron fang", "iron fang", "rusted fang", and "fang" as the spike when the spike is handled.
+The description of the spike is "[if the spike is undescribed]The flat, rusted tops of rail spikes punctuate the tracks at regular intervals.[else]This is a single-minded piece of iron, pointed at one end, assured of its purpose. It is rusting, unwanted on an untraveled rail.[end if]"
+[Defined: Taking, Going, Looking, Hurting it with, Throwing it at]
+
+Chapter D - Clothing
+
+Section a - Tunic
+
+The player wears a tunic.
+The tunic is a subject.
+Understand "shirt" and "top" as the tunic.
+The description of the tunic is "[if Pilgrimage is happening]A faithful servant until the end, cut to an exquisite fit by a master tailor whose name she has long forgotten.[first time][paragraph break]...or did she make it herself? She can't remember.[only][else]It is dark and wet with blood.[end if]".
+[Defined: Inserting it into]
+
+Section b - Cloak
+
+The player wears a cloak.
+The cloak is a subject.
+Understand "hood", "coat", "outerwear", and "mantle" as the cloak.
+The description of the cloak is "[if Pilgrimage is happening]So far as she knows, she has always had this thick, midnight-blue mantle[else]It is dark and wet with blood[end if].".
+[Defined: Inserting it into]
+
+Section c - Skirt
+
+The player wears a skirt.
+The skirt is a subject.
+The description of the skirt is "[if Pilgrimage is happening]This was once the same cream color as her tunic, but it is now black and brown with dust and dried[else]It is dark and wet with[end if] blood.".
+[Defined: Inserting it into]
+
+Section d - Boots
+
+The player wears some boots.
+A container is a kind of subject.
+Understand "shoe", "shoes", "boot", "left boot", "right boot", "left shoe", "right shoe", and "footwear" as the boots.
+The description of the boots is "[if Pilgrimage is happening]These boots are made for walking.[else]Dusty leather, glistening with blood.[end if]".
+[Defined: Inserting it into]
+
+Section e - Scars
+
+Some scars are a part of yourself.
+Understand "scar", "arm", "left arm", "right arm", "arms", "wrist", "left wrist", "right wrist", and "wrists" as the scars.
+The description of the scars is "They are smooth and pale, and like ink on paper, they tell stories.".
+[Defined: Touching, Cutting, Showing it to]
+
+Section f - Hair
+
+The hair is a part of yourself.
+The indefinite article is "her".
+The description of the hair is "It's a tangled mat, full of bits of leaf and dirt."
+[Defined: Touching, Cutting]
+
+Chapter E - The Knife
+
+A knife is in the boots.
+The knife is a subject.
+Understand "shining knife", "dagger", "shining dagger", "her knife", "Sylvia's knife", and "weapon" as the knife.
+The description of the knife is "[if the weariness of yourself < 5]Her knife is clean and sharp, used frequently and with care amidst the constant hardship of the road.[else]The blade is menacing, cold, and hungry.[end if]"
+[Defined: Taking, Dropping, Inserting it into, Throwing it at, Cutting, Rubbing, Hurting it with, Violence]
+
+Chapter F - Revenant
+
+Revenant is an undescribed woman.
+Revenant is in A3.
+Understand "Sylvia", "Sylvia's body", "Sylvia's corpse", "Sylvia's carcass", "Sylvia's remains", "body", "corpse", "carcass", "remains", and "my only friend" as Revenant.
+
+Some blood is part of Revenant.
+The description of the blood is "Thick, dark, everywhere."
+Before touching the blood:
+	try touching Revenant;
+	stop the action.
+
+A stab wound is part of Revenant.
+Understand "knife wound" as the stab wound.
+The description of the stab wound is "Clean, efficient, perfect, terrible."
+Before touching the stab wound:
+	try touching Revenant;
+	stop the action.
+
+PART 04 - SCRIPTS
+
+Chapter A - When Play Begins
+
+When play begins:
+	now the player is female;
+	now the description of the player is "Haggard. Sleepless. Staggering.";
+	now the left hand status line is "";
+	now the story viewpoint is third person singular;
+	say "The last of the jerky ran out at sundown last night, and the last of the water early this morning. She hasn't seen another living thing in weeks, not a single bird or snake; even the brush by the side of the endless railroad is brittle and dry.[paragraph break]Her name is Sylvia, and she's going home.".
+
+Chapter B - Scenes
+
+Section a - Pilgrimage
+
+Pilgrimage is a scene.
+Pilgrimage begins when play begins.
+Pilgrimage ends when Fulfillment begins.
+Pilgrimage ends when Remorse begins.
+
+Understand "Sylvia" and "her" as yourself when Pilgrimage is happening.
+
+When Pilgrimage ends:
+	now the description of the player is "I have no idea what you look like.";
+	now the story viewpoint is second person singular.
+
+Section b - Fulfillment
+
+Fulfillment is a scene.
+Fulfillment begins when the player is in A2.
+Fulfillment ends when Remorse begins.
+
+Every turn when Fulfillment is happening:
+	if the time since Fulfillment began is one minute:
+		say "Sylvia continues to race to the horizon, down off the end of the track and onto a worn footpath amid the grasses.";
+	if the time since Fulfillment began is four minutes:
+		say "The last echoes of Sylvia's boots on the northbound path have faded. She is free.";
+	if the time since Fulfillment began is eight minutes:
+		say "Sylvia is beyond your help now, and whether she finds home is up to her. You have helped her through the darkest part of the journey, and I am grateful to you.[paragraph break]There is nothing more for you to do here, stranger. Would you like to leave now? > [run paragraph on]";
+		if the player consents:
+			say "[line break]Go in peace, friend.";
+			end the story finally;
+		else:
+			say "[line break]Then you may stay. Leave when you like.";
+	decrement the weariness of yourself;
+	if the weariness of yourself is 0:
+		say "Her pain is faded but not forgotten. This journey is just another story, and its scars are just new scars.".
+
+Section c - Remorse
+
+Remorse is a scene.
+Remorse begins when the player is in A3.
+Remorse ends when Fulfillment begins.
+
+Chapter C - Text Substitutions
+
+Section a - A1-default
+
+To say A1-default:
+	say "The railroad beneath her feet is rotten oak and rusted iron. To either side of the straight, flat path are reeds and brambles. The wind from the south pushes her forward and whistles in her ears".[WTODO]
+
+Section b - moveres
+
+To say moveres:
+	say "[the Story corresponding to an Index of the journey of yourself in the Table of Walks]";
+	say "[line break]".
+
+To say step:
+	say "She carries on, over rail tie after rail tie, the twin rails running to the horizon like lines of light.[run paragraph on]"
+
+To say etick:
+	increment the weariness of yourself.
+
+To say fall:
+	now yourself is kneeling.
+
+Table of Walks
+Index	Story
+1	"She inhales, slow and deep, and tugs the folds of her cloak about her shoulders. Nodding slightly, she leans into her stride, and pushes on down the path."
+2	"Her pace is steady and her treads are heavy, days of exhaustion weighing her down. Stride by stride, she passes by the endless ranks of dead brush."
+3	"[step]"
+4	"There is a slight surge in the wind, then it subsides to its usual endless whistle."
+5	"She stifles a yawn as she walks, then her eyes light up with an idea. She wets her lips with her tongue, then starts whistling."
+6	"[step][line break][line break]Her thin, high whistle dances over the low tones of the wind like a brook over heavy, river-smooth stones."
+7	"Bright notes like sunrise go dancing on the grey wind. Her eyes are bright and her stride is quick, and the rail reaches to the horizon unbroken."
+8	"The tune tugs at your memory, bright and quick, punctuated by her stride. A love song, maybe? You're not certain."
+9	"The last notes fade on the wind as she reaches the end of the song. Her gaze is soft and warm, and her pace is renewed, even happy to be walking."
+10	"[etick]The clouds roll overhead as she walks, one endless grey swell replaced by another."
+11	"[step]"
+12	"The crunch of her boots on the gravel is bleakly repetitive. She toys with the idea of picking up a pebble or bit of dirt, unsure if she wants to do it."
+13	"Ranks of dead brush fade over the south horizon as she walks, and ranks of dead brush appear over the north horizon to match. Nothing changes."
+14	"She leans into her stride and pushes on. Nothing changes."
+15	"The world is painted in strokes of faded browns and greys like a lazy watercolor. Nothing changes as she walks."
+16	"With nothing to do, she takes a mental inventory of her possessions. Over the past few weeks of walking, she has shed her belongings, one by one, down to her waterskin. She is left with nothing but the clothes on her back and a keen knife which she keeps in her boot."
+17	"[step]"
+18	"She puts one foot in front of the other, measuring her progress by the beams of oak she passes. There is no point counting them. She gave that up weeks ago."
+19	"The oak beams are rotted and weak. She briefly wonders whether she could pull a piece free, then shrugs without breaking stride."
+20	"As she walks, she looks up at the clouds and tries to guess where the sun would be, but realizes she hasn't known what time of day it is for hours."
+21	"[step][line break][line break]The thought of taking a moment to sit tugs at the edge of her consciousness."
+22	"Nothing changes, except maybe the pale lines in the dark clouds, indicating where the cloud cover is thinnest."
+23	"She finds her gaze wandering as she continues, idly passing over the rails, the ground, the brush, the sky, her tunic and cloak. Her boots continue their rhythmic crunch in the white gravel."
+24	"Her legs ache. The reeds rustle in the breeze. The rail beckons heartlessly onward."
+25	"She starts humming, and her throat cracks with dryness. She pushes forward down the path."
+26	"The same song she whistled earlier, she hums now as she carries on. The freedom it had when she whistled is gone now. It is heavier, slower, breaking in her throat."
+27	"Her footfalls mark the time, her strained humming carrying a fracturing tune. The wind's whistle is harsh and mocking."
+28	"[step][line break][line break]Her voice, and her stride, and the wind weave into a tapestry of rhythm, and vastness, and pain."
+29	"[etick]Her throat catches, and the music dies. The love song turns into silent tears, her eyes wet as she presses on."
+30	"[step]"
+31	"Nothing changes, not ahead, not behind, not above. She dries her eyes with the sleeve of her tunic and takes a deep breath."
+32	"[step]"
+33	"Her shoulders slope forward under some unseen weight. Her stride is slow and heavy. The desire to rest returns, stronger."
+34	"She rolls her shoulders, sighs, and leans back into her stride. The path stretches on ahead."
+35	"The rustling of the reeds is almost like a conversation at the edge of her hearing, almost like whispers she cannot understand."
+36	"The reeds whisper. Maybe they're mocking her. Maybe they're in awe of her. She cannot know."
+37	"[step] There is nothing but this."
+38	"The parliament of dry reeds continues, endless whispers of the dead. The horizon is impassive and ineffable."
+39	"Was that a break in the clouds to the north? Even if it was, it lasted only an instant. She smiles at it, and waves."
+40	"The wind subsides, just a little, and the whispering of dead reeds stops. The whistling of the air over the dust does not."
+41	"She walks on, her breaths controlled and deep. [if the player holds the knife]The hand holding her knife twitches, and there is a flash of steel.[else]She feels an urge to draw her knife.[end if]"
+42	"[step][if the player holds the knife][line break][line break]She tosses the knife once, just to see it fly. Her catch is perfect, hilt-first. Her eyes are sad and tired, and just a shade of pride colors them for a moment.[else][end if]"
+43	"The pale lines in the clouds have all but faded, leaving only a deep grey quilt to cover the sky. She shivers and pulls her cloak close."
+44	"A darkness comes over her brow and she looks down. 'Why am I still walking?' Sylvia asks, to no one."
+45	"She trudges, and the horizon stares at her. The brush seems to lean in, thick and sharp, and the rails gleam hungrily."
+46	"[etick]'No one is waiting for me anyway,' she mutters as she walks. 'No one knows I'm alive.' She sighs a sigh that almost turns into a choked laugh, but doesn't quite."
+47	"[step]"
+48	"[step] Nothing has changed, not once, no single step has made the difference."
+49	"Nothing changes except the number of strides she's taken since starting this absurd adventure."
+50	"There is no food, no water, and no end. There is the whistle of the wind and the whisper of the reeds and the rhythm of her gradually slowing stride."
+51	"They say death is eternal and unchanging. What is this, then? The question is plain to see in her face, in the furrow of her brow and the dullness of her eyes."
+52	"She wonders about death, as she walks. They say it's like a dreamless sleep. But she hasn't dreamed in longer than she can remember."
+53	"[unless the player holds the white pebble]Maybe a rock would cheer her up.[else]She looks forlornly at the little rock in her hand, wondering if it has dreams.[end if]"
+54	"[step]"
+55	"Step. Step. Step. Step. Step. Step. Step."
+56	"Step. Step. Step. Step. Step."
+57	"Step. Step. Step."
+58	"She doesn't move. Her feet drag to a halt in the gravel and she stares at the sky in silence."
+59	"Behind the clouds, somewhere, there must be a sun. 'Right?' she whispers. 'You're still there?' She still does not move."
+60	"'And what if you're not?' There is a sigh, and she looks back at the ground, then back at the sky. She trembles, her teeth clenched. She does not move."
+61	"[fall]Low in her throat, a growl starts, and after a moment it builds to a scream. She drops to her knees, hands clawing at her hair."
+62	"Shaking and panting, she puts one foot in front of the other, then again, then again, then again."
+63	"The faceless horizon stares at her as she trudges forward, and she glares back with an uncanny implacability."
+64	"[step]"
+65	"[step][line break][line break]Her stomach growls, quietly."
+66	"[step]"
+67	"There is a break in the clouds to the north. It flares blindingly bright, a golden wound in the endless grey."
+68	"Sylvia's ragged panting gets louder as her pace quickens. The light is all she needs to find another wind."
+69	"The wind picks up behind her, blowing at the edges of her cloak, shoving her forward so she stumbles. The reeds take up a dry, whispery chorus. There is no doubt now that the voices of the dead are whispering in awe."
+70	"The brightness grows as she surges forward on staggering legs. The hope that there might be blue in the sky again is written in her eyes."
+71	"The world is a blur of brown under a blur of grey with a single stripe of gold and white, far to the north. A lazy watercolor, maybe, but one with hope in it."
+72	"'One foot in front of another,' she pants, reminding herself with every stride. The splintering rail ties under her feet creak and snap as she passes over them, giving up their lives in her wake."
+73	"The brightness is so close, but there is still no end to the rail in sight. Sylvia takes a deep breath and keeps walking."
+74	"A second brightness appears on the horizon, the brightness of sunlight reflected in water. Her eyes widen. 'Please,' she gasps between two heavy steps."
+
+Section c - railmetaphor
+
+To say railmetaphor:
+	say "[one of]She knows it's a metaphor for her lack of choice, but she consoles herself with the daydream that once this creaking, rotting thing carried goods and people between the hearts of civilization.
+[or]She knows it's a metaphor for her lack of choice, but she consoles herself with the daydream that once this creaking, rotting thing carried goods and people between the hearts of civilization.
+[or][if the journey of yourself < 20]She knows it's a metaphor for her lack of choice, but she consoles herself with the daydream that once this creaking, rotting thing carried goods and people between the hearts of civilization.
+[else][bold type]It's not about to change. What do you hope to accomplish here?[roman type]
+[end if]
+[stopping]".
+
+Section d - crisis
+
+To say crisis:
+	if the weariness of yourself is 3:
+		say "Sylvia's face pales and her eyes widen. The suggestion is horrific and alien to her after a lifetime of overcoming adversity.";
+	else if the weariness of yourself is 4:
+		say "She shakes her head in silence, barely breathing. The wind puffs dust about her and the reeds rattle.";
+	else if the weariness of yourself is 5:
+		say "Your insistence is chilling. The knife's edge gleams in agreement as you urge her. 'Please don't,' she mouths silently.";
+	else if the weariness of yourself is 6:
+		say "Her hand holding the knife trembles, and it flashes hungrily. Her breaths are short and shallow, and her eyes are wild. The world hangs in the terrible stillness of a windless moment.";
+	else:
+		say "'Sigarda, forgive me,' are her last words, followed by a shuddering gasp as the knife slips between two ribs. Sylvia collapses forward, face-first into the dust, and around her the ground begins to turn red. She twitches for a few moments, then is still.[paragraph break]What now?";
+		now the player is in A3;
+		repeat with item running through things:
+			if the player wears item:
+				now Revenant wears item;
+			if the player carries item:
+				now Revenant carries item;
+		now the weariness of yourself is 0;
+		now the narrative of yourself is 0.
+
+Section e - listentale
+
+To say listentale:
+	if the narrative of yourself > 4:
+		say "I have no more stories for you, I am afraid.";
+	else:
+		say "[the Story corresponding to an Index of the narrative of yourself in the Table of Stories][line break]".
+
+Table of Stories
+Index	Story
+1	"Once, there was a Ms. Thompson, who wanted to save the world. She called herself Cheshire, because she came and went mysteriously, whenever and wherever she wanted - she was very rich, you see, and so she could have whatever she wanted."
+2	"Cheshire owned research corporations and secret laboratories, factories and shipyards, and no one ever met with her in person. Her representatives were few and secretive as well, often leaving a trail of bodies as they went about their business. No one could get to the bottom of her network."
+3	"But Cheshire couldn't abide the idea of a perfect secret, because then no one could know how clever she'd been to set it all in motion. So, like notes in bottles, Cheshire scattered hints about herself throughout books and stories, waiting to see if someone would find her."
+4	"Well done.[line break]  - [italic type]Lisa Adelaide Thompson[roman type]"
+
+Chapter D - Player Variables
+
+Understand "my face" and "my body" as yourself.
+
+To decide whether Sylvia is armed:
+	repeat with weapon running through things had by the player:
+		if weapon is the knife, yes;
+		if weapon is the spike, yes;
+	no.
+
+Yourself is either kneeling or standing.
+Yourself is standing.
+
+Yourself has a number called journey.
+Yourself has journey 0.
+
+Yourself has a number called weariness.
+Yourself has weariness 0.
+
+Yourself has a number called narrative.
+Yourself has narrative 0.
+
+PART 05 - DEBUG - NOT FOR RELEASE
+
+Understand "delete Sylvia" as killjumping.
+Killjumping is an action applying to nothing.
+
+Carry out killjumping:
+	say "Sylvia is now dead.";
+	now the player is in A3;
+	repeat with item running through things:
+		if yourself is wearing item:
+			now Revenant is wearing item;
+		if yourself is carrying item:
+			now Revenant is carrying item.
+
+Understand "escape Sylvia" as endjumping.
+Endjumping is an action applying to nothing.
+
+Carry out endjumping:
+	say "Sylvia has reached the end of the road.";
+	now the player is in A2;
+	repeat with item running through things:
+		if yourself is wearing item:
+			now Revenant is wearing item;
+		if yourself is carrying item:
+			now Revenant is carrying item.
+
+Understand "diagnose" as diagnosing.
+Diagnosing is an action applying to nothing.
+
+Carry out diagnosing:
+	say "Times moved: [the journey of yourself].";
+	say "Exhaustion: [the weariness of yourself].";
+	say "Metalevel: [the narrative of yourself].".
+
+Understand "examine [any things]" as examining.
